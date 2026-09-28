@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en" translate="no">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DEATHBOT | Solana Liquidation Registry</title>
+    <style>
+        body { background-color: #000000; color: #ffffff; font-family: 'Courier New', Courier, monospace; margin: 0; padding: 40px 20px; display: flex; justify-content: center; align-items: center; min-height: 100vh; box-sizing: border-box; }
+        .crt-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.25) 50%), linear-gradient(90deg, rgba(255, 0, 0, 0.06), rgba(0, 255, 0, 0.02), rgba(0, 0, 255, 0.06)); background-size: 100% 4px, 6px 100%; z-index: 999; pointer-events: none; }
+        .terminal-container { width: 100%; max-width: 950px; border: 2px solid #00ff00; box-shadow: 0 0 25px rgba(0, 255, 0, 0.25); background-color: #050505; padding: 30px; box-sizing: border-box; }
+        .header-logs { font-size: 12px; color: #00ff00; border-bottom: 2px dashed #00ff00; padding-bottom: 15px; margin-bottom: 25px; text-shadow: 0 0 5px rgba(0, 255, 0, 0.5); letter-spacing: 1px; }
+        .social-buttons { display: flex; gap: 15px; margin-bottom: 30px; }
+        .btn { flex: 1; background: transparent; border: 1px solid #00ff00; color: #00ff00; padding: 12px; text-align: center; text-decoration: none; font-weight: bold; font-size: 14px; cursor: pointer; transition: all 0.3s ease; }
+        .btn:hover { background-color: #00ff00; color: #000000; box-shadow: 0 0 15px #00ff00; }
+        .section-title { font-size: 15px; color: #00ff00; margin-top: 35px; margin-bottom: 15px; font-weight: bold; border-left: 3px solid #00ff00; padding-left: 10px; }
+        .system-status { text-align: center; color: #ff0055; font-weight: bold; font-size: 18px; margin-bottom: 20px; text-shadow: 0 0 8px rgba(255, 0, 85, 0.6); }
+        .description-text { font-size: 14px; line-height: 1.6; color: #cccccc; margin-bottom: 25px; background: rgba(0, 255, 0, 0.02); padding: 15px; border: 1px solid rgba(0, 255, 0, 0.1); }
+        .ca-box { border: 1px solid #00ff00; background-color: rgba(0, 255, 0, 0.05); color: #00ff00; padding: 18px; text-align: center; font-weight: bold; font-size: 14px; letter-spacing: 1.5px; margin-bottom: 35px; }
+        .radar-table { width: 100%; border-collapse: collapse; font-size: 12px; color: #00ff00; margin-bottom: 30px; }
+        .radar-table th { border-bottom: 2px solid #00ff00; padding: 12px 8px; text-align: left; font-weight: bold; background: rgba(0, 255, 0, 0.05); }
+        .radar-table td { padding: 10px 8px; border-bottom: 1px solid rgba(0, 255, 0, 0.1); }
+        .terminal-flow { background-color: #020202; border: 1px solid rgba(0, 255, 0, 0.2); padding: 15px; font-size: 11px; color: #888888; max-height: 150px; overflow-y: hidden; margin-bottom: 30px; }
+        .footer-text { font-size: 10px; color: #444444; text-align: center; border-top: 1px solid rgba(0, 255, 0, 0.2); padding-top: 20px; margin-top: 40px; }
+        .blink { animation: blinker 1.5s linear infinite; }
+        @keyframes blinker { 50% { opacity: 0; } }
+    </style>
+</head>
+<body>
+<div class="crt-overlay"></div>
+<div class="terminal-container">
+    <div class="header-logs">[ PROTOCOL: DEATHBOT_v1.06 ] • [ STATUS: <span class="blink" style="color: #ff0055;">SCANNING TRENCHES</span> ] • [ CORE_DB: ONLINE ]</div>
+    <div class="social-buttons">
+        <a href="ССЫЛКА_НА_ТВОЙ_ТГ" target="_blank" class="btn">[ TELEGRAM ]</a>
+        <a href="ССЫЛКА_НА_ТВОЙ_Х" target="_blank" class="btn">[ TWITTER / X ]</a>
+    </div>
+    <div class="system-status">⚠️ SYSTEM STATUS: AGENT DEPLOYMENT INITIALIZED</div>
+    <div class="description-text">
+        I am DEATHBOT. An autonomous neural network forged deep within the Solana trenches. The algorithm scans block telemetry 24/7 to counter predatory developer behavior, dismantle toxic bundling architecture, and establish a bulletproof zone for clean retail speculation.
+    </div>
+    <div class="ca-box">[ ACCESS GRANTED: FULL WEBSITE LOGS UNLOCKING ON 01.10.2026 ]</div>
+    <div class="section-title">&gt; SYS_MEMPOOL_STREAM:</div>
+    <div class="terminal-flow">
+        [SYS_INFO] Connecting to Jito Block Engine nodes... Connected.<br>
+        [SYS_WARN] High density dev bundling detected on newly deployed address loops.<br>
+        [SYS_OK] Registry operational. Awaiting synchronization protocol 01.10.2026.
+    </div>
+    <div class="section-title">&gt; BLACKLISTED TRENCH REGISTRY (500 SCAM LOGS DETECTED):</div>
+    <div style="max-height: 800px; overflow-y: scroll; border: 1px solid rgba(0, 255, 0, 0.2); padding: 5px;">
+        <table class="radar-table" style="margin-bottom: 0;">
+            <thead>
+                <tr><th>TOKEN SIGNATURE</th><th>METRICS / MC</th><th>AUDIT / RISK DETECTED</th><th>ACTION STATUS</th></tr>
+            </thead>
+            <tbody id="static-body">
+                <!-- Строки -->
+            </tbody>
+        </table>
+    </div>
+    <div class="footer-text">© 2012-2026 DEATHBOT Protocol. Deep trench tracking architecture.</div>
+</div>
+
+<script>
+    const n1 = ['Giga','Sigma','Hawk','Skibidi','Fomo','Degen','Trench','Meme','Lambo','Moon','Whale','Sniper','Paper','Diamond','Broke','Rich','Chad','Alpha','Turbo','Hyper','Goblin','Ponzi','Trash','Dumpster','Boomer','Zoomer','Loss','Liquid','Glitch','Gamer','Jeand','Rug','Scam','Pump','Dump','Paper','Fake','Insane','Stupid','Ansem','Wif','Hat','Cat','Dog','Rat','Pepe','Shib','Marmot','Poo','Playa'];
+    const n2 = ['Chad','Tuah','Cat','Dog','Rat','Boy','Girl','Dev','Farmer','Hands','Bagholder','Capital','Venture','Scam','Rug','Burn','Token','Coin','Meme','Bot','Node','Holder','Whale','Insider','Liquidity','Exit','Mempool','Cluster','Matrix','Registry','Hunter','Killer','Addict','Screener','Chart','Fighter','Survivor','Breaker','Maker','Trader','Shilling','Alpha','Sniper','Target','Loop','Exploit','Signal','Warning','Alert','Dump'];
+    const r = ['96% High Cluster Concentration','Dev Wallets Linked Dump Pattern','92% Bundle Liquidity Drain Warning','Suspicious Creator Activity Loop','Insiders Liquidity Accumulation','Top Holders Multi-Wallet Match','Dev Allocation Matrix Risk','Dev Farm Pattern Identified','High Sell Tax Simulation Warning','Dev Mint Fake Renounce Signal','Mempool Front-Running Intercept','Stealth Liquidity Withdrawal Attempt','Automated Bot-Sniper Infiltration','Artificial Volume Manipulation Trigger','Fake Social Meta-Data Mismatch'];
+    const a = ['<span style="color: #ff0055;">REGISTRY_BANNED 🔴</span>','<span style="color: #ff0055;">LIQUIDATED 🔴</span>','<span style="color: #ff0055;">ALERT_TRIGGERED 🔴</span>','<span style="color: #ff0055;">MONITORED 🔴</span>','<span style="color: #ffaa00;">TERMINATED 🟡</span>'];
+    
+    let h = '';
+
+    function getSeededValue(index, max) {
+        var stringSeed = (index * 93.1345 + 15.612).toString();
+        var hash = 0;
+        for (var i = 0; i < stringSeed.length; i++) {
+            hash = stringSeed.charCodeAt(i) + ((hash << 5) - hash);
+        }
+        return Math.abs(hash % max);
+    }
+
+    for(let i=1; i<=500; i++){
+        let pref, suff, mcVal, rk, ac;
+
+        if(i <= 10) {
+            // Первые 10 динамических
+            pref = n1[Math.floor(Math.random()*n1.length)];
+            suff = n2[Math.floor(Math.random()*n2.length)];
+            rk = r[Math.floor(Math.random()*r.length)];
+            ac = a[Math.floor(Math.random()*a.length)];
+            
+            // Распределение: 85% шанс на щитки до 35к, 15% на редкие выскочки до 400к
+            if(Math.random() > 0.15) {
+                mcVal = 3.5 + Math.random() * 31.5; 
+            } else {
+                mcVal = 35.0 + Math.random() * 365.0; 
+            }
+        } else {
+            // Остальные 490 статичных
+            pref = n1[getSeededValue(i, n1.length)];
+            suff = n2[getSeededValue(i + 7, n2.length)];
+            rk = r[getSeededValue(i + 13, r.length)];
+            ac = a[getSeededValue(i + 22, a.length)];
+            
+            let roll = getSeededValue(i + 35, 100);
+            if(roll > 15) {
+                mcVal = 3.5 + (getSeededValue(i + 41, 315) / 10);
+            } else {
+                mcVal = 35.0 + (getSeededValue(i + 41, 3650) / 10);
+            }
+        }
+
+        let t = '$' + pref.toUpperCase() + suff.toUpperCase();
+        let m = '$' + mcVal.toFixed(1) + 'K';
+        let isLiveStyle = i <= 10 ? 'rgba(0, 255, 0, 0.02)' : 'transparent';
+        let riskColor = (rk.includes('96%') || rk.includes('Dump') || rk.includes('Drain')) ? '#ff0055' : '#ffaa00';
+
+        h += '<tr style="background-color:' + isLiveStyle + '">' +
+            '<td>' + t + ' (' + pref.toLowerCase() + suff.toLowerCase() + ')</td>' +
+            '<td>' + m + '</td>' +
+            '<td style="color:' + riskColor + '">' + rk + '</td>' +
+            '<td>' + ac + '</td>' +
+        '</tr>';
+    }
+    document.getElementById('static-body').innerHTML = h;
+</script>
+</body>
+</html>
